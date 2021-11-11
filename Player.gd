@@ -3,7 +3,7 @@ extends RigidBody
 onready var ground_sensor = $ground_sensor
 
 var running_speed := 1000.0
-var boost_speed := 2000.0
+var boost_speed := 5000.0
 
 var max_jumps = 2
 var remaining_jumps : int = max_jumps
@@ -12,6 +12,9 @@ onready var camera = $camera_assembly
 
 
 var on_floor = false
+
+func apply_boost():
+	pass
 
 func _integrate_forces(state):
 	var jump_pressed = false
