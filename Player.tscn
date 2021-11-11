@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://RayCast.gd" type="Script" id=3]
+[ext_resource path="res://camera_assembly.gd" type="Script" id=4]
+
+[sub_resource type="SphereShape" id=2]
+
+[sub_resource type="SphereMesh" id=4]
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0.980392, 0.447059, 0.188235, 1 )
+albedo_texture = ExtResource( 1 )
+
+[node name="Player" type="RigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.689919, 0, 0 )
+gravity_scale = 3.0
+contacts_reported = 1
+contact_monitor = true
+can_sleep = false
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 4 )
+material/0 = SubResource( 6 )
+
+[node name="ground_sensor" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0, -1.2, 0 )
+script = ExtResource( 3 )
+
+[node name="camera_assembly" type="Position3D" parent="."]
+transform = Transform( 0.707107, 0.353553, -0.612372, 0, 0.866025, 0.5, 0.707107, -0.353553, 0.612372, 0, 0, 0 )
+script = ExtResource( 4 )
+
+[node name="Camera" type="Camera" parent="camera_assembly"]
+transform = Transform( 1, -2.98023e-08, 2.98023e-08, 2.98023e-08, 1, 0, -2.98023e-08, 1.49012e-08, 1, 0, 0, 40 )
+current = true
+fov = 45.0
