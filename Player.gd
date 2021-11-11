@@ -3,6 +3,7 @@ extends RigidBody
 onready var ground_sensor = $ground_sensor
 
 var running_speed := 1000.0
+var boost_speed := 2000.0
 
 var max_jumps = 2
 var remaining_jumps : int = max_jumps
