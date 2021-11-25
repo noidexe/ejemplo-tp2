@@ -144,3 +144,6 @@ autoplay = "Nueva Animación"
 playback_process_mode = 0
 "anims/Nueva Animación" = SubResource( 9 )
 anims/RESET = SubResource( 10 )
+
+[node name="Camara2" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 49.578 )
